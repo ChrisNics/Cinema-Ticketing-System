@@ -1,0 +1,125 @@
+//- Email template adapted from https://github.com/leemunroe/responsive-html-email-template
+//- Converted from HTML using https://html2pug.now.sh/
+
+doctype html
+html
+    head
+        meta(name='viewport', content='width=device-width')
+        meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+        title= subject
+
+        include _style
+    body
+        span.preheader
+        | This is a receipt for your recent purchase on { #{data.datePurchase}}. No payment is due with this receipt.
+        table.email-wrapper(width='100%' cellpadding='0' cellspacing='0' role='presentation')
+            tr
+                td(align='center')
+                    table.email-content(width='100%' cellpadding='0' cellspacing='0' role='presentation')
+                        tr
+                            td.email-masthead
+                                a.f-fallback.email-masthead_name(href='https://example.com')
+                                    | Receipt
+                        // Email Body
+                        tr
+                            td.email-body(width='100%' cellpadding='0' cellspacing='0')
+                                table.email-body_inner(align='center' width='570' cellpadding='0' cellspacing='0' role='presentation')
+                                    // Body content
+                                    tr
+                                        td.content-cell
+                                            .f-fallback
+                                                h1= data.movie
+                                                p
+                                                    | Thanks for using Our Product. This email is the receipt for your purchase. No payment is due.
+                                                //- p
+                                                //-     | This purchase will appear as &ldquo;[Credit Card Statement Name]&rdquo; on your credit card statement for your {{credit_card_brand}} ending in {{credit_card_last_four}}. Need to 
+                                                //-     a(href='{{billing_url}}') update your payment information
+                                                //-     | ?
+                                                //- // Discount
+                                                //- table.discount(align='center' width='100%' cellpadding='0' cellspacing='0' role='presentation')
+                                                //-     tr
+                                                //-         td(align='center')
+                                                //-             h1.f-fallback.discount_heading 10% off your next purchase!
+                                                //-             p.f-fallback.discount_body
+                                                //-                 | Thanks for your support! Here&apos;s a coupon for 10% off your next purchase if used by {{expiration_date}}.
+                                                //-             //
+                                                //-                 Border based button
+                                                //-                 https://litmus.com/blog/a-guide-to-bulletproof-buttons-in-email-design
+                                                //-             table(width='100%' border='0' cellspacing='0' cellpadding='0' role='presentation')
+                                                //-                 tr
+                                                //-                     td(align='center')
+                                                //-                         a.f-fallback.button.button--green(href='http://example.com' target='_blank') Use this discount now...
+                                                table.purchase(width='100%' cellpadding='0' cellspacing='0' role='presentation')
+                                                    tr
+                                                        td
+                                                            | Transaction No:
+                                                            h3= `${data._id}`
+                                                        td
+                                                            h3.align-right= `${data.date}`
+                                                    tr
+                                                        td(colspan='2')
+                                                            table.purchase_content(width='100%' cellpadding='0' cellspacing='0')
+                                                                tr
+                                                                    th.purchase_heading(align='left')
+                                                                        p.f-fallback Description
+                                                                    th.purchase_heading(align='right')
+                                                                        p.f-fallback Amount
+                                                                |                                 #{data.movie}
+                                                                tr
+                                                                    td.purchase_item(width='80%')
+                                                                        span.f-fallback #{data.quantity}x
+                                                                    td.align-right(width='20%')
+                                                                        span.f-fallback ₱#{data.total}
+                                                                |                                 ₱#{data.price}
+                                                                tr
+                                                                    td.purchase_footer(width='80%' valign='middle')
+                                                                        p.f-fallback.purchase_total.purchase_total--label Total
+                                                                    td.purchase_footer(width='20%' valign='middle')
+                                                                        p.f-fallback.purchase_total ₱#{data.total}
+                                                p
+                                                    | If you have any questions about this receipt, simply reply to this email or reach out to our 
+                                                    a(href='{{support_url}}') support team
+                                                    |  for help.
+                                                p
+                                                    | Cheers,
+                                                    br
+                                                    | The Cinema Team
+                                                // Action
+                                                //- table.body-action(align='center' width='100%' cellpadding='0' cellspacing='0' role='presentation')
+                                                //-     tr
+                                                //-         td(align='center')
+                                                //-             //
+                                                //-                 Border based button
+                                                //-                 https://litmus.com/blog/a-guide-to-bulletproof-buttons-in-email-design
+                                                //-             table(width='100%' border='0' cellspacing='0' cellpadding='0' role='presentation')
+                                                //-                 tr
+                                                //-                     td(align='center')
+                                                //-                         a.f-fallback.button.button--blue(href='{{action_url}}' target='_blank') Download as PDF
+                                                //- // Sub copy
+                                                //- table.body-sub(role='presentation')
+                                                //-     tr
+                                                //-         td
+                                                //-             p.f-fallback.sub
+                                                //-                 strong Need a printable copy for your records?
+                                                //-                 |  You can 
+                                                //-                 a(href='{{action_url}}') download a PDF version
+                                                //-                 | .
+                                                //-             p.f-fallback.sub
+                                                //-                 | Moved recently? Have a new credit card? You can easily 
+                                                //-                 a(href='{{billing_url}}') update your billing information
+                                                //-                 | .
+                        tr
+                            td
+                                table.email-footer(align='center' width='570' cellpadding='0' cellspacing='0' role='presentation')
+                                    tr
+                                        td.content-cell(align='center')
+                                            p.f-fallback.sub.align-center &copy; 2021 All rights reserved.
+                                            p.f-fallback.sub.align-center
+                                                | Cinema Tech
+                                                br
+                                                | Blk 2 Lot 13 Mahogany St.
+                                                br
+                                                | Caloocan City
+
+
+                                        //- td  

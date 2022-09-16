@@ -1,0 +1,102 @@
+
+.modals
+
+    position: absolute
+    height: 100vh
+    width: 100%
+    z-index: 1000
+    background: transparent
+
+    display: none
+
+    justify-content: center
+    align-content: center
+
+    &__box
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        display: none
+        background: var(--gray)
+        padding: 5rem
+        border-radius: 1.5rem
+        z-index: 10
+
+        justify-items: center
+        grid-row-gap: 3rem
+
+    &__logo
+        height: 10rem
+        width: 10rem
+
+    &__form
+        position: relative
+        display: grid
+
+        justify-self: stretch
+        grid-row-gap: 1.5rem
+
+    &__input
+        padding: 1.5rem
+        border-radius: 1rem
+        border: none
+        background: var(--light-gray)
+
+        &--synopsis
+            max-height: 10rem
+            max-width: 50rem
+
+    &__price-parental-container
+        display: grid
+        grid-auto-flow: column
+        width: 60%
+
+        grid-column-gap: 2rem
+
+    &__date-container
+        display: grid
+        width: 35rem
+        justify-self: start
+        padding: 1rem
+        grid-row-gap: 1rem
+        overflow: auto
+        max-height: 10rem
+
+        img
+            height: 2rem
+            width: 2rem
+            cursor: pointer
+
+    &__date-box
+        display: grid
+        grid-auto-flow: column
+        grid-column-gap: 1rem
+        align-items: center
+
+    button
+        padding-right: 17rem
+        padding-left: 17rem
+
+    h6
+        color: var(--white)
+        line-height: 1.6
+        font-family: var(--font-secondary)
+        font-size: 1.4rem
+        font-weight: 300
+
+    &__forgot
+        display: grid
+        justify-self: stretch
+        justify-content: space-between
+
+        grid-auto-flow: column
+
+    span
+        font-weight: 600
+
+select:invalid
+    color: gray
+
+option
+    color: black

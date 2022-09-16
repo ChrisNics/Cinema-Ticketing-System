@@ -1,0 +1,145 @@
+
+section.modals
+    .modals__box#forgot-box
+        img(src="/img/logo.png", alt="logo" class="modals__logo")
+        form.modals__form#forgot-form
+            h6  Please Input your Email.
+            input(type="text" class="modals__input" placeholder="Email" required)#input-forgot-email
+            button.btn--cta Send Email
+
+
+    .modals__box#sign-up-box
+        img(src="/img/logo.png", alt="logo" class="modals__logo")
+        form.modals__form#sign-up-form
+            h6 
+                span Welcome.
+                |  Please Sign Up.
+            input(type="text" class="modals__input" placeholder="Name" required)#input-sign-up-name
+            input(type="text" class="modals__input" placeholder="Email" required)#input-sign-up-email
+            input(type="password" class="modals__input" placeholder="Password")#input-sign-up-password
+            input(type="password" class="modals__input" placeholder="Confirm Password")#input-sign-up-password-confirm
+            button.btn--cta Sign Up
+        .modals__forgot
+            h6 Already have an account? 
+                span#btn-sign-in Sign in
+
+    .modals__box#sign-in-box
+        img(src="/img/logo.png", alt="logo" class="modals__logo")
+        form.modals__form#sign-in-form
+            h6 
+                span Welcome.
+                |  Please Login.
+            input(type="text" class="modals__input" placeholder="Email" required)#input-sign-in-email
+            input(type="password" class="modals__input" placeholder="Password" required)#input-sign-in-password
+            .check-box-container(style="display: grid;grid-auto-flow: column;justify-self: start;align-items: center;grid-column-gap: 1rem")
+                input(type='checkbox')#show-password
+                h6 Show Password
+            button.btn--cta Sign In
+        .modals__forgot
+            h6#btn-forgot(style="cursor: pointer;") Forgot Password?
+            h6 Don't have an account yet? 
+                span#btn-sign-up Sign up
+
+
+
+
+
+    .modals__box#add-admin-box
+        form.modals__form#add-admin-form
+            h6 
+                span Add Admin
+            input(type="text" class="modals__input" placeholder="Name" required)#input-add-admin-name
+            input(type="text" class="modals__input" placeholder="Email" required)#input-add-admin-email
+            input(type="password" class="modals__input" placeholder="Password" required)#input-add-admin-password
+            .my-account__profile-container 
+                img(src="/img/users/default.jpg",  alt="#").my-account__profile#photo-add-admin
+                input(type="file" name="photo" accept='image/*' required)#input-add-admin-photo
+            button.btn--cta Add
+
+    .modals__box#update-admin-box
+        form.modals__form#update-admin-form
+            h6 
+                span Update Admin
+            input(type="text" class="modals__input" placeholder="ID" style="display:none;" required)#input-update-admin-id
+            input(type="text" class="modals__input" placeholder="Name" required)#input-update-admin-name
+            input(type="text" class="modals__input" placeholder="Email" required)#input-update-admin-email
+            input(type="text" class="modals__input" placeholder="Password" required)#input-update-admin-password
+            .my-account__profile-container 
+                img(src="/img/users/default.jpg",  alt="#").my-account__profile#photo-update-admin
+                input(type="file" name="photo" accept='image/*')#input-update-admin-photo
+            button.btn--cta Update
+
+
+
+    .modals__box#add-movie-box
+        form.modals__form#add-movie-form
+            h6 
+                span Add Movie
+            input(type="text" class="modals__input" placeholder="Title" required)#input-add-movies-title
+            input(type="text" class="modals__input" placeholder="Category" required)#input-add-movies-category
+            input(type="text" class="modals__input" placeholder="Duration" required)#input-add-movies-duration
+            input(type="text" class="modals__input" placeholder="Cast" required)#input-add-movies-cast
+            textarea(placeholder='Synopsis' class="modals__input modals__input--synopsis")#input-add-movies-synopsis
+            .modals__price-parental-container
+                input(type="text" class="modals__input" placeholder="Price" required)#input-add-movies-price
+                select#input-add-movies-parental.modals__input(name='parental' required)
+                    option(value="" disabled selected hidden) Parental
+                    option(value='G') G
+                    option(value='PG') PG
+                    option(value='SPG') SPG
+            .modals__date-container.modals__date-container--add
+                // Dynamically render
+            .my-account__profile-container 
+                img(src="/img/movies/default.jpg",  alt="#").my-account__profile#photo-add-movies
+                input(type="file" name="photo" accept='image/*' required)#input-add-movies-photo
+            button.btn--cta Add Movie
+
+
+    .modals__box#update-movie-box
+        form(data-movie).modals__form#update-movie-form
+            h6 
+                span Update Movie
+            input(type="text" class="modals__input" placeholder="ID" style="display:none;" required)#input-update-movies-id
+            input(type="text" class="modals__input" placeholder="Title" required)#input-update-movies-title
+            input(type="text" class="modals__input" placeholder="Category" required)#input-update-movies-category
+            input(type="text" class="modals__input" placeholder="Duration" required)#input-update-movies-duration
+            input(type="text" class="modals__input" placeholder="Cast" required)#input-update-movies-cast
+            textarea(placeholder='Synopsis' class="modals__input modals__input--synopsis")#input-update-movies-synopsis
+            .modals__price-parental-container
+                input(type="text" class="modals__input" placeholder="Price" required)#input-update-movies-price
+                select#input-update-movies-parental.modals__input(name='parental' required)
+                    option(value="" disabled selected hidden) Parental
+                    option(value='G') G
+                    option(value='PG') PG
+                    option(value='SPG') SPG
+            .modals__date-container.modals__date-container--update
+            // Dynamically render
+            .my-account__profile-container 
+                img(src="/img/movies/default.jpg", alt="#").my-account__profile#photo-update-movies
+                input(type="file" name="photo" accept='image/*')#input-update-movies-photo
+            button.btn--cta Update Movie
+
+
+
+    .modals__box#seats-box
+        .movie__seats-box
+            .movie__seats-first-column
+            .movie__seats-second-column
+            .movie__seats-third-column
+
+        .btn--cta#update-seats Update
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

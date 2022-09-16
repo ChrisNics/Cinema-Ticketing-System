@@ -1,0 +1,40 @@
+\:root
+    --red: #F5170D
+    --white: #FFFFFF
+    --blue: #2C6EB9
+    --green: #00911E
+    --gray: #93908F
+    --light-gray: #D3D3D3
+    --font-primary: 'Lilita One', cursive
+    --font-secondary: 'Roboto Slab', serif
+    --padding-default: 2rem 10rem
+
+$bp-lg: 68.75em // 1100px
+// $bp-md: 59.375em // 950px
+// $bp-sm: 54.375em // 870px
+// $bp-smx1: 50em // 800px
+// $bp-smx2: 31.25em // 500px
+
+    // @media only screen and (max-width: $bp-md) 
+	// 	font-size: 50%
+
+*,
+*::before,
+*::after
+    margin: 0
+    padding: 0
+    box-sizing: inherit
+
+html
+    box-sizing: border-box
+    font-size: 62.5% // 10px/16 = 62.5% -> 1rem = 10px
+    scroll-behavior: smooth
+
+    @media only screen and (max-width: $bp-lg)
+        font-size: 50%
+
+body
+    line-height: 1.6
+    font-family: var(--font-secondary)
+    font-size: 1.6rem
+    font-weight: 300

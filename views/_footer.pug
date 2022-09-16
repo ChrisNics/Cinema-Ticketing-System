@@ -1,0 +1,17 @@
+mixin listItem(text, link)
+    li.footer__item 
+                a.footer__link(href=`${link}`)= text 
+
+
+
+footer.footer 
+    .footer__box
+        img(src="/img/logo.png", alt="Logo" class='footer__logo')
+
+
+    .footer__copyright
+        | &copy; 2022 by Christian Nicolas
+        
+
+
+

@@ -1,0 +1,48 @@
+doctype html 
+html
+    head
+
+        block head
+            meta(charset='UTF-8')
+            meta(name="viewport" content='width=device-width,initial-scale=1.0')
+            
+            //- <link rel="stylesheet" href="css/style.css" />
+            link(rel='stylesheet' href='/css/style.css')
+            link(rel='stylesheet'  href='https://fonts.googleapis.com/css?family=Lato:300,300i,700')
+            link(rel='preconnect' href='https://fonts.googleapis.com')
+            link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+            link(href='https://fonts.googleapis.com/css2?family=Lilita+One&display=swap' rel='stylesheet')
+            link(rel='preconnect' href='https://fonts.googleapis.com')
+            link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+            link(href='https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap' rel='stylesheet')
+            style
+                
+            
+
+
+    title #{title}
+
+
+    body(data-alert=`${alert ? alert : ''}`) 
+        include _modals
+        // Header
+        include _header
+
+        // Content
+        block content
+            h1 This is a placeholder headings
+
+        // Footer
+        include _footer
+        
+        script(src="https://unpkg.com/axios/dist/axios.min.js")
+        script(src="/js/index.js" type="module")
+        
+        
+        
+
+        //- script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.0/axios.js')
+        //- script(src='/js/mapbox.js')
+        //- script(src='/js/login.js')
+        //- script(src='https://js.stripe.com/v3/')
+        //- script(src='/js/bundle.js')

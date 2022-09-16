@@ -1,0 +1,85 @@
+extends base
+
+block content
+    if (!user || user.role === 'user')
+        main.main 
+            .search-bar 
+                input(type="text" class='search-bar__input' placeholder='Search')
+                img(src="/img/search-icon.svg", alt="search-button" class='search-bar__button')
+
+
+            h3.heading-3 Now Showing
+            .cards
+                each movie in movies
+                    .cards__card(data-title=`${movie.title}` data-parental=`${movie.parental}`)
+                        img(src=`/img/movies/${movie.photo}`, alt="movie" class='cards__img')
+                        .cards__pg-details 
+                            .cards__icon(class=`${movie.parental}`) 
+                            h2.heading-2= movie.title
+                        a(href=`${user ? `/movie/${movie.slug}/${movie._id}` : '#'}` class='cards__btn btn') Buy Tickets
+
+    else 
+
+        section.my-account#admin
+
+            .my-account__side-bar#admin
+                h3.heading-3 My Admin
+                .my-account__box
+                    .my-account__logo-details#btn-movie-manage.gray
+                        img(src="img/profile-icon.svg", alt="details")
+                        h5.heading-5 Movie Management
+                    .my-account__logo-details#btn-admin-manage
+                        img(src="img/transaction-icon.svg", alt="transaction")
+                        h6.heading-5 Admin Management
+
+            .my-account__content#movie-manage
+                table#admin
+                    thead 
+                        tr
+                            th Movie
+                            th Category
+                            th Price
+                    tbody 
+                        tr#tr-add
+                            td
+                                img(src="/img/add-icon.svg", alt="").icon-add#btn-show-add-movie
+
+                            td 
+                            td 
+                            td 
+                            td 
+                        each movie in movies
+
+                            tr
+                                td= movie.title
+                                td= movie.category
+                                td#td-bg= movie.price
+                                    img(src="/img/update-icon.svg", alt="" data-id=`${movie._id}`).icon-update#btn-show-update-movie
+                                    img(src="/img/delete-icon.svg", alt="" data-id=`${movie._id}`).icon-delete#btn-delete-movie
+
+
+            .my-account__content#admin-manage
+                table#admin
+                    thead 
+                        tr
+                            th Name
+                            th Email
+                    tbody 
+                        tr#tr-add
+                            td
+                                img(src="/img/add-icon.svg", alt="").icon-add#btn-show-add-admin
+
+                            td 
+                            td 
+                            td 
+                            td 
+                        each user in users
+                            tr
+                                td= user.name
+                                td#td-md= user.email
+                                    img(src="/img/update-icon.svg", alt="" data-id=`${user._id}`).icon-update#btn-show-update-admin
+                                    img(src="/img/delete-icon.svg", alt="" data-id=`${user._id}`).icon-delete#btn-delete-admin      
+
+
+
+

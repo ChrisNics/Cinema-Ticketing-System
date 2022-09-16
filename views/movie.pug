@@ -1,0 +1,59 @@
+extends base
+
+block content
+    section.movie
+        .movie__image-container
+            img(src=`/img/movies/${movie.photo}`, alt="" class='movie__image')
+            .movie__details 
+                .movie__details__title 
+                    h3.heading-3= movie.title
+                .movie__details__sub-detail
+                    | #{movie.category} | #{movie.duration}
+                a(href="#tickets") 
+                    .movie__btn.btn Buy Ticket
+        .movie__summary 
+            .movie__cast
+                    span    Price: 
+                    #price #{movie.price}
+            .movie__cast
+                    span    Cast: 
+                    #cast #{movie.cast}
+            .movie__description
+                    span    Synopsis: 
+                    <br>
+                    #synopsis #{movie.synopsis}
+
+        .movie__tickets#tickets
+            .movie__tickets__text
+                h3.heading-3 Select Tickets 
+                | Choose the quantity and type of tickets you want to purchase. Please note that seats are assigned on a first-come, first-served basis. When collecting tickets or having them examined by ushers, all voucher tickets will require proof of identification.
+     
+
+        .movie__seats
+            .movie__seats-box 
+
+                .movie__seats-horizontal
+                    each date,index in movie.newDateArray
+                        .movie__seats-horizontal-item(data-array=`${date[1]}` data-date=`${movie.dateArray[index]}` data-orig-date=`${date[0]}` data-user-id=`${user._id}` data-movie-id=`${movie._id}` data-movie=`${movie.title}`)
+                            .movie__seats-time
+                                h5.heading-5= date[0]
+                            
+
+                .movie__seats-first-column-user
+                .movie__seats-second-column-user
+                .movie__seats-third-column-user
+                  
+
+                .movie__seats-total
+                    h5.heading-3.movie__seats-total-label Total 
+                    h5.heading-3#total(data-price=`${movie.price}`) 0.00
+
+            a.btn#proceed Proceed
+            h5.heading-5#warning-seat(style='color:red;') Please Select preferred Seat and Time!
+
+                
+
+                    
+
+
+    

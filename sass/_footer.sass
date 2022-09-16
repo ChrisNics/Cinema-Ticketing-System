@@ -1,0 +1,40 @@
+.footer
+    color: var(--white)
+    background: var(--red)
+    padding: var(--padding-default)
+    padding-top: 7rem
+    padding-bottom: 3rem
+    display: grid
+    font-family: var(--font-secondary)
+
+    grid-row-gap: 1rem
+
+    &__box
+
+    &__logo
+        width: 8rem
+        height: 8rem
+
+    &__list
+        list-style: none
+        display: grid
+
+        grid-auto-flow: column
+        grid-column-gap: 2rem
+    &__item
+        display: block
+        transition: all .2s
+        &:hover
+            transform: translateY(-.5rem)
+    &__link
+        color: var(--white)
+        text-decoration: none
+        font-size: 1.4rem
+
+    &__copyright
+        width: 100%
+        display: grid
+
+        justify-content: space-between
+        grid-auto-flow: column
+        align-items: center

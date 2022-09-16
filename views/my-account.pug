@@ -1,0 +1,99 @@
+extend base
+
+block content 
+
+    section.my-account#user 
+
+
+        .my-account__side-bar#user
+            h3.heading-3 My Account
+            .my-account__box
+                .my-account__logo-details#btn-account-manage.gray
+                    img(src="img/profile-icon.svg", alt="details")
+                    h5.heading-5 My Account
+                .my-account__logo-details#btn-transaction-manage
+                    img(src="img/transaction-icon.svg", alt="transaction")
+                    h6.heading-5 Transactions
+
+        .my-account__content#account-manage
+            h3.heading-3 My details
+            h5.heading-5 Your Account Settings
+            hr
+            .my-account__form-container#form-user
+                    
+                    form.my-account__form#update-user-form
+                        label(for="name" class='heading-5') Name
+                        input(type="text" value=`${user.name}`)#input-update-user-name
+                        label(for="name" class='heading-5') Email Address
+                        input(type="email" value=`${user.email}`)#input-update-user-email
+                        .my-account__profile-container 
+                            img(src=`/img/users/${user.photo}`, alt="#").my-account__profile#photo-update-user
+                            input(type="file" name="photo" accept='image/*')#input-update-user-photo
+                        button.btn--cta Save
+
+            .my-account__content.my-account__content--password-change
+                h3.heading-3 Password Change
+                hr
+                .my-account__form-container#form-user
+                    
+                    form.my-account__form#update-password-user-form
+                        label(for="old-password" class='heading-5') Old Password
+                        input(type="password")#input-update-user-current-password
+                        label(for="new-password" class='heading-5') New Password
+                        input(type="password")#input-update-user-new-password
+                        label(for="confirm-password" class='heading-5') Confirm Password
+                        input(type="password")#input-update-user-confirm-password
+                        button.btn--cta Save
+
+
+
+        .my-account__content#transaction-manage
+                table#user
+                    thead 
+                        tr
+                            th Movie
+                            th Quantity
+                            th Total
+                            th Cinema Date
+                            th Date of Purchase
+                    tbody 
+                        each val, key in user.transactions
+                            tr
+                                td= val.movie
+                                td= val.quantity
+                                td= val.total
+                                td= val.date
+                                td= `${val.datePurchase.toUTCString().split(' ').slice(0, 4).join(' ')}`
+                                   
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+

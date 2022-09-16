@@ -1,0 +1,21 @@
+header.header
+    a(href="http://127.0.0.1:3000/") 
+        img(src="/img/logo.png", alt="Logo" class="header__logo")
+    
+    if user
+        .header__account
+            a(href=`${user.role === 'user' ? 'http://127.0.0.1:3000/my-account' : 'http://127.0.0.1:3000/'}`) 
+                img(src=`/img/users/${user.photo}` alt="#" class='header__circle-image')
+                | #{user.name.split(' ')[0]}
+            h4#btn-log-out logout
+    else
+        .header__login-signup 
+            a.btn(href="#")#btn-show-sign-up Sign up
+            a.btn--cta(href="#")#btn-show-sign-in Login
+
+
+
+
+
+
+    

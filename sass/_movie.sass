@@ -1,0 +1,217 @@
+.movie
+    display: grid
+
+    grid-template-rows: repeat(2, minmax(min-content,50vh))
+    &__image-container
+        clip-path: polygon(0 0, 100% 0, 100% 83%, 0% 100%)
+        display: grid
+
+        justify-content: center
+        align-content: center
+
+    &__image
+        display: block
+        height: 100%
+        width: 100%
+        position: absolute
+        object-fit: cover
+        object-position: center
+        z-index: -1
+        filter: brightness(20%)
+    &__details
+        color: var(--white)
+        display: grid
+
+        grid-row-gap: 1rem
+        justify-items: center
+        &__title
+
+        &__sub-detail
+
+    &__btn
+        background: var(--red)
+        padding: 1rem 3rem
+        border-radius: 1rem
+
+    &__summary
+        padding: var(--padding-default)
+        padding-top: 8rem
+        display: grid
+
+        align-content: start
+        grid-row-gap: 2rem
+
+        span
+            font-weight: 800
+
+    &__cast
+
+    &__description
+
+    &__tickets
+        display: grid
+        padding: var(--padding-default)
+
+        grid-row-gap: 3.5rem
+
+        @media only screen and (max-width: 50em)
+            padding: 5rem
+
+        &__text
+
+        &__calculator
+            display: grid
+
+            grid-template-columns: repeat(3, minmax(min-content, 33fr))
+            justify-items: center
+            grid-row-gap: 3rem
+
+        &__cost,
+        &__qty,
+        &__subtotal
+            font-weight: 800
+
+        &__qty-value,
+        &__cost-value,
+        &__subtotal-value
+            font-weight: 300
+
+        &__qty-value
+            display: grid
+
+            grid-column-gap: 3rem
+            grid-auto-flow: column
+            justify-content: start
+
+            img
+                height: 3rem
+                width: 3rem
+                cursor: pointer
+                transition: all .2s
+
+                &:hover
+                    transform: translateY(-.5rem)
+
+    &__seats
+        display: grid
+        margin: 5rem 0
+
+        justify-content: center
+        justify-items: center
+        grid-row-gap: 3rem
+
+    &__seats-box
+        display: grid
+
+        grid-auto-flow: column
+        grid-column-gap: 8rem
+        justify-content: start
+        align-items: start
+
+        @media only screen and (max-width: 56.25em)
+            grid-template-columns: repeat(3,min-content)
+            grid-row-gap: 3rem
+
+        @media only screen and (max-width: 43.75em)
+            grid-template-columns: none
+            grid-auto-flow: row
+            padding: 0 2rem
+
+    &__seats-first-column-user,
+    &__seats-second-column-user,
+    &__seats-third-column-user
+        @media only screen and (max-width: 56.25em)
+            grid-row: 1 / 2
+        @media only screen and (max-width: 43.75em)
+            grid-row: 2 / 3
+
+    &__seats-first-column,
+    &__seats-second-column,
+    &__seats-third-column,
+    &__seats-first-column-user,
+    &__seats-second-column-user,
+    &__seats-third-column-user
+
+        display: grid
+
+        grid-template-columns: repeat(3, minmax(min-content, 5rem))
+        grid-row-gap: 2rem
+
+        img
+            height: 3rem
+            width: 3rem
+            cursor: pointer
+            transition: all .2s
+            filter: invert(33%) sepia(86%) saturate(825%) hue-rotate(92deg) brightness(101%) contrast(103%)
+
+            &:hover
+                filter: invert(12%) sepia(83%) saturate(7458%) hue-rotate(1deg) brightness(115%) contrast(92%)
+                transform: translateY(-.5rem)
+
+    &__seats-horizontal
+        padding: 2rem
+        display: grid
+        width: 30rem
+        overflow: auto
+        white-space: nowrap
+
+        grid-auto-flow: column
+        grid-column-gap: 3rem
+        grid-auto-columns: 26rem
+
+        @media only screen and (max-width: 43.75em)
+            grid-column: 1 / 4
+            justify-self: center
+
+    &__seats-horizontal-item
+        display: grid
+        border: 5px solid var(--gray)
+        transition: all .2s
+        cursor: pointer
+
+        &:hover
+            box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.52)
+            -webkit-box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.52)
+            -moz-box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.52)
+        & > *
+            padding: 2rem
+            text-align: center
+
+    &__seats-time
+        background: var(--red)
+        color: var(--white)
+
+    &__seats-date
+
+    &__seats-total
+        display: grid
+        padding: 2rem
+
+        align-self: center
+        justify-items: center
+        grid-row-gap: 2rem
+
+        @media only screen and (max-width: 56.25em)
+            grid-row: 2 / 3
+            grid-column: 2 / 4
+
+        @media only screen and (max-width: 43.75em)
+            grid-row: 3 / 4
+            grid-column: 1 / 4
+            justify-self: center
+
+        & > *
+            letter-spacing: .1rem
+
+    &__seats-total-label
+        font-weight: 300
+
+.red
+
+    filter: invert(12%) sepia(83%) saturate(7458%) hue-rotate(1deg) brightness(115%) contrast(92%) !important
+
+.blue
+    filter: invert(38%) sepia(29%) saturate(1345%) hue-rotate(171deg) brightness(98%) contrast(90%) !important
+
+#warning-seat
+    display: none

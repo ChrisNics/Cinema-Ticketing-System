@@ -1,0 +1,40 @@
+extend base
+
+block content 
+
+    section.my-account
+
+        .my-account__side-bar
+            h3.heading-3 My Account
+            .my-account__box
+                .my-account__logo-details
+                    img(src="img/profile-icon.svg", alt="details")
+                    h5.heading-5 Movie Management
+                .my-account__logo-details
+                    img(src="img/transaction-icon.svg", alt="transaction")
+                    h6.heading-5 Admin Management
+
+        .my-account__content
+            table
+                thead 
+                    tr
+                        th Movie
+                        th Category
+                        th Price
+                tbody 
+                    tr#tr-add
+                        td
+                            img(src="/img/add-icon.svg", alt="").icon-add#btn-show-add-movie
+                           
+                        td 
+                        td 
+                        td 
+                        td 
+                    each movie in movies
+                        
+                        tr
+                            td= movie.title
+                            td= movie.category
+                            td= movie.price
+                                img(src="/img/update-icon.svg", alt="" data-id=`${movie._id}`).icon-update#btn-show-update-movie
+                                img(src="/img/delete-icon.svg", alt="" data-id=`${movie._id}`).icon-delete#btn-delete-movie
